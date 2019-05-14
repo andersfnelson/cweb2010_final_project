@@ -124,6 +124,7 @@ public class Controller {
             String sql = "INSERT INTO Jokes (Joke)" + "VALUES (?)";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, selectedJoke.getJoke());
+            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
 
             //Alert saying joke has been added
@@ -188,4 +189,42 @@ public class Controller {
     }
 
 
+    public void delete_btn_clicked(MouseEvent mouseEvent) throws SQLException {
+        //Select particular object
+        Joke selectedJoke = jokeTableView.getSelectionModel().getSelectedItem();
+        System.out.println(selectedJoke.getJoke());
+        //Sets up connection to DB4free SQL database
+        Connection conn = null;
+        try {
+
+
+            conn = DriverManager.getConnection(connectionURL, dbUsername, dbPassword);
+            System.out.println("connected to database");
+
+            //SQL Insert statement
+            String sql = "DELETE from Jokes where Joke=(?)";
+            System.out.println(sql);
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            System.out.println(preparedStatement.toString());
+            preparedStatement.setString(1, selectedJoke.getJoke());
+            System.out.println(preparedStatement.toString());
+
+            preparedStatement.executeUpdate();
+
+            //Alert saying joke has been added
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Database Connection");
+            alert.setContentText("Record deleted successfully!");
+            alert.show();
+        }
+        catch (SQLException e){
+            System.out.println("error");
+            System.out.println(e.getErrorCode());
+        }
+        finally {
+            if(conn != null){
+                conn.close();
+            }
+        }
+    }
 }
