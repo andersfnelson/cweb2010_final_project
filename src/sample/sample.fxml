@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" prefHeight="461.0" prefWidth="619.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane minHeight="600.0" minWidth="800.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <children>
+                <GridPane fx:id="big_pane" layoutX="-1.0" layoutY="-19.0" minHeight="600.0" minWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" percentHeight="0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="75" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" percentHeight="25" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <children>
+                        <ListView fx:id="jokeTableView" style="-fx-opacity: 0.5;" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin></ListView>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <columnConstraints>
+                                <ColumnConstraints maxWidth="1.7976931348623157E308" percentWidth="100.0" />
+
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="database_btn" mnemonicParsing="false" onMouseClicked="#database_btn_clicked" prefHeight="26.0" prefWidth="283.0" stylesheets="@sample.css" text="Save joke to database" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <effect>
+                                        <ColorAdjust brightness="-0.1" hue="-0.38" saturation="1.0" />
+                                    </effect>
+                                    <font>
+                                        <Font name="System Font" size="13.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="newjoke_btn" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#newjoke_btn_clicked" prefHeight="26.0" prefWidth="283.0" stylesheets="@sample.css" text="Get new joke" GridPane.halignment="CENTER">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="retrieve_btn" mnemonicParsing="false" onMouseClicked="#retrieve_btn_clicked" prefHeight="26.0" prefWidth="283.0" stylesheets="@sample.css" text="Retrieve saved jokes" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor></Button>
+                            </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="clear_btn" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#clear_btn_clicked" prefHeight="26.0" prefWidth="283.0" stylesheets="@sample.css" text="Reset View" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <GridPane.margin>
+                                        <Insets />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <TextField fx:id="search_box" maxHeight="26.0" maxWidth="283.0" prefHeight="26.0" prefWidth="283.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                                    <GridPane.margin>
+                                        <Insets left="7.0" right="7.0" top="12.5" />
+                                    </GridPane.margin>
+                                </TextField>
+                                <Button fx:id="search_btn" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#search_btn_clicked" prefHeight="26.0" prefWidth="283.0" stylesheets="@sample.css" text="Search" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                    <GridPane.margin>
+                                        <Insets top="12.5" />
+                                    </GridPane.margin>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </GridPane>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
