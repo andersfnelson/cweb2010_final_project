@@ -188,7 +188,6 @@ public class Controller {
         }
     }
 
-
     public void delete_btn_clicked(MouseEvent mouseEvent) throws SQLException {
         //Select particular object
         Joke selectedJoke = jokeTableView.getSelectionModel().getSelectedItem();
